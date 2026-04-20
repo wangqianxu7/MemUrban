@@ -28,10 +28,9 @@ OUTPUT_DIR="output/${VIDEO_NAME}"
 # export OPENAI_BASE_URL="https://api.openai.com/v1"
 
 # ===== 执行 =====
-python main.py \
+python -m memurban.app.main \
   --video "${VIDEO_PATH}" \
   --fps "${FPS}" \
   --sim-threshold "${SIM_THRESHOLD}" \
   --model "${MODEL}" \
   --output "${OUTPUT_DIR}"
-

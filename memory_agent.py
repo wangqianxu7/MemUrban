@@ -1,5 +1,5 @@
 """Backward-compatible memory agent import shim."""
 
-from memory_core import SpatialTemporalBehaviorAgent
+from memurban.memory import SpatialTemporalBehaviorAgent
 
 __all__ = ["SpatialTemporalBehaviorAgent"]

@@ -8,8 +8,8 @@ import os
 from pathlib import Path
 from typing import TYPE_CHECKING, Any, Dict, List, Optional
 
-from audio_transcriber import TranscriptSegment, transcript_window_text
-from frame_extractor import FrameSample
+from .audio_transcriber import TranscriptSegment, transcript_window_text
+from .frame_extractor import FrameSample
 
 if TYPE_CHECKING:
     from openai import OpenAI
