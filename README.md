@@ -83,3 +83,20 @@ python main.py \
 - `load_memory_export(path, merge=True)`: 从完整 `memory_store.json` 增量恢复长期记忆、短期记忆和派生记忆
 
 这套持久化方案当前采用 JSON 文件，特点是简单、可检查、方便增量恢复。后续如果要接到 SQLite、Chroma 或 pgvector，可以直接替换 `LongTermMemoryStore` 的磁盘层，不需要改上层 agent 接口。
+
+## skill_core 占位模块
+
+项目中新增了一个尚未接入主执行链的 `skill_core/`，用于未来实现“基于 memory / decision 反馈的自进化技能系统”。
+
+- `skill_core/models.py`: skill、反馈、演化提案的数据结构
+- `skill_core/manager.py`: skill 注册表与 JSON 持久化
+- `skill_core/evolution.py`: 基于反馈生成“新增/完善 skill”提案的占位引擎
+
+当前阶段它只负责：
+
+- 记录草案型 `SkillCard`
+- 接收来自 memory 或 decision 的反馈信号
+- 生成 `SkillMutationProposal`
+- 保存到本地 JSON 供后续人工审阅或接入自动执行
+
+当前阶段它不会被 `main.py` 或 `SpatialTemporalBehaviorAgent` 自动调用。
